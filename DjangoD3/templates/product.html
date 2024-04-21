@@ -1,0 +1,27 @@
+<!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
+{% extends 'flatpages/default.html' %}
+{% load custom_filter %}
+{% load custom_tags %}
+
+
+{% block content %}
+<h1>{{ product.name }}</h1>
+       <table width="100%" style="top-margin:50px, low-margin:100px">
+           <tr>
+               <td><u>Название</u></td>
+               <td><u>Описание</u></td>
+               <td><u>Категория</u></td>
+               <td><u>Цена</u></td>
+               <td><u>Количество</u></td>
+           </tr>
+           <tr>
+               <td>{{ product.name }}</td>
+               <td>{{ product.description }}</td>
+               <td>{{ product.category.name }}</td>
+               <td>{{ product.price|currency:"rub" }}</td>
+               <td>{{ product.quantity }}</td>
+           </tr>
+       </table>
+{% endblock content %}
+
+
